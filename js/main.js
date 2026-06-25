@@ -76,25 +76,53 @@ function setActiveNav() {
 
 /******* SERVICES SLIDER *******/
 
+/******* SERVICES SLIDER *******/
+
 function initServicesSlider() {
   const slides = document.querySelectorAll(".service-slide");
   const dots = document.querySelectorAll(".dot");
+  const slider = document.querySelector(".services-slider");
 
-  if (!slides.length || !dots.length) return;
+  if (!slides.length || !dots.length || !slider) return;
+
+  let currentIndex = 0;
+  let startX = 0;
+  let endX = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    currentIndex = index;
+  }
 
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      slides.forEach((slide) => {
-        slide.classList.remove("active");
-      });
-
-      dots.forEach((dot) => {
-        dot.classList.remove("active");
-      });
-
-      slides[index].classList.add("active");
-      dot.classList.add("active");
+      showSlide(index);
     });
+  });
+
+  slider.addEventListener("touchstart", (event) => {
+    startX = event.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", (event) => {
+    endX = event.changedTouches[0].clientX;
+
+    const swipeDistance = startX - endX;
+
+    if (Math.abs(swipeDistance) < 50) return;
+
+    if (swipeDistance > 0) {
+      currentIndex = (currentIndex + 1) % slides.length;
+    } else {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    }
+
+    showSlide(currentIndex);
   });
 }
 
