@@ -162,8 +162,8 @@ textarea:focus-visible {
 }
 
 .footer-logo {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   display: block;
 }
@@ -302,6 +302,24 @@ textarea:focus-visible {
     opacity:.8;
 }
 
+.landing-prompt {
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  color: var(--cream);
+  opacity: 0.65;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  transition: opacity 0.3s ease;
+}
+
+/* .landing-prompt:hover {
+  opacity: 0.9;
+} */
+
 /* HOME PAGE CSS */
 
 .hero {
@@ -388,10 +406,10 @@ textarea:focus-visible {
 .button {
   background: var(--cream);
   color: var(--text);
-  padding: 14px 28px;
+  padding: 16px 40px;
   border-radius: 999px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   transition:
         transform .35s,
         background .35s,
@@ -417,14 +435,20 @@ textarea:focus-visible {
 }
 
 .intro-section h2 {
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 400;
   margin: 0 0 20px;
 }
 
+.underline-accent {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+}
+
 .intro-section p {
-  font-size: 18px;
-  line-height: 1.35;
+  font-size: 20px;
+  line-height: 1.65;
 }
 
 .intro-image {
@@ -432,6 +456,7 @@ textarea:focus-visible {
   margin-top: 32px;
   border-radius: 10px;
   display: block;
+  height: 260px;
 }
 
 .intro-copy {
@@ -573,7 +598,8 @@ textarea:focus-visible {
   color: var(--text);
   border-radius: 10px;
   overflow: hidden;
-  min-height: 260px;
+  min-height: 300px;
+  height: 300px;
   transition: .35s;
 }
 
@@ -595,7 +621,7 @@ textarea:focus-visible {
 .featured-service-copy h2 {
   font-size: 32px;
   font-weight: 400;
-  margin: 0 0 32px;
+  margin: 0 0 6px;
 }
 
 .featured-service-copy p {
@@ -1117,14 +1143,24 @@ textarea:focus-visible {
 
 .service-slide {
   grid-template-columns: 1fr;
+  min-height: 550px;
 }
 
 .featured-service-copy {
   padding: 36px 32px;
 }
 
-.featured-service-image {
+/* .featured-service-image {
   min-height: 220px;
+} */
+
+.featured-service-image {
+  width: 100%;
+  height: 100%;
+  height: 380px;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
 }
 
 .specialties-section {
@@ -1304,6 +1340,26 @@ textarea:focus-visible {
 
 .specialties-section {
   padding-inline: clamp(24px, 8vw, 40px);
+}
+
+.services-slide {
+  min-height: 600px;
+}
+
+.featured-service-image.one {
+  object-position: center center;
+}
+
+.featured-service-image.three {
+  object-position: left center;
+}
+
+.featured-service-image.four {
+  object-position: 60% 80%;
+}
+
+.featured-service-image.six {
+  object-position: 60% bottom;
 }
 
 /* CONSUMER CSS */
